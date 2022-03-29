@@ -3,5 +3,6 @@ public class Solution1 {
         System.out.println("hi");
         System.out.println("Hello man");
         System.out.println(90);
+        System.out.println(900);
     }
 }
