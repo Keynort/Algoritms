@@ -10,11 +10,11 @@ public class Problem_4 {
 
     private static int factorial(int n) {
 
-        int result = 1;
+        int res = 1;
         if (n == 1 || n == 0) {
-            return result;
+            return res;
         }
-        result = n * factorial(n-1);
-        return result;
+        res = n * factorial(n-1);
+        return res;
     }
 }
