@@ -9,7 +9,6 @@ public class Problem_4 {
     }
 
     private static int factorial(int n) {
-
         int res = 1;
         if (n == 1 || n == 0) {
             return res;

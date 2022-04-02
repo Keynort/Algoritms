@@ -1,17 +1,25 @@
 import java.util.Scanner;
 
-public class Problem_2 {
-    public static void main(String[] args) {
+
+class Problem_2 {
+
+    public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int list[] = new int[n];
-        for (int i = 0; i <n ; i++) {
-            list[i]=in.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i]=in.nextInt();
         }
+        System.out.println(getSum(array));
+    }
+
+
+    public static double getSum(int[] list){
         double sum =0;
-        for (int i = 0; i <n ; i++) {
+        for (int i = 0; i <list.length ; i++) {
             sum+=list[i];
         }
-        System.out.println(sum/n);
+        return sum/list.length;
     }
 }
+

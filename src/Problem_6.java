@@ -9,6 +9,7 @@ public class Problem_6 {
         System.out.println(square(n,a));
     }
 
+
     private static int square(int n,int a) {
         int result=1;
         if (n == 0) {

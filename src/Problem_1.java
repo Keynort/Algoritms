@@ -1,19 +1,25 @@
 import java.util.Scanner;
 
-public class Problem_1 {
-    public static void main(String[] args) {
+class Problem_1 {
+
+    public static void main(String args[]){
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        int list[] = new int[n];
-        for (int i = 0; i <n ; i++) {
-            list[i]=in.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++) {
+            array[i]=in.nextInt();
         }
-        int min=list[0];
-        for (int i = 0; i <n ; i++) {
-            if(min>list[i]){
-                min=list[i];
+        System.out.println(getMin(array));
+    }
+
+
+    public static int getMin(int[] list){
+        int minValue = list[0];
+        for(int i=0;i<list.length;i++){
+            if(list[i] < minValue){
+                minValue = list[i];
             }
         }
-        System.out.println(min);
+        return minValue;
     }
 }
