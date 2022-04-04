@@ -1,21 +1,16 @@
 import java.util.Scanner;
 
 public class Problem_6 {
-
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
         int a = in.nextInt();
-        System.out.println(square(n,a));
+        int n = in.nextInt();
+        System.out.println(square(a,n));
     }
-
-
-    private static int square(int n,int a) {
-        int result=1;
-        if (n == 0) {
-            return result;
+    public static int square(int a , int n){
+        if(n == 1){
+            return a;
         }
-            result=n*square(n,a-1);
-        return result;
+        return a * square(a, n-1);
     }
 }
