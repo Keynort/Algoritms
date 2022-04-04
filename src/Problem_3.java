@@ -5,7 +5,6 @@ public class Problem_3 {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         isPrime(n);
-
     }
     public static void isPrime(int n ) {
         int c = 0;

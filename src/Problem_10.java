@@ -8,7 +8,6 @@ public class Problem_10 {
         System.out.println(GCD(n,k));
     }
     public static int GCD(int a, int b){
-        // a = q*b + r
         int r = a % b;
         if(r == 0)
             return b;

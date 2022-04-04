@@ -10,11 +10,11 @@ class Problem_2 {
         for (int i = 0; i < n; i++) {
             array[i]=in.nextInt();
         }
-        System.out.println(getSum(array));
+        System.out.println(getAverage(array));
     }
 
 
-    public static double getSum(int[] list){
+    public static double getAverage(int[] list){
         double sum =0;
         for (int i = 0; i <list.length ; i++) {
             sum+=list[i];
