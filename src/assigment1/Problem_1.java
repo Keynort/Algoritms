@@ -12,6 +12,7 @@ class Problem_1 {
             array[i]=in.nextInt();
         }
         System.out.println(getMin(array));
+        System.out.println("Hello world");
     }
 
 
