@@ -30,21 +30,21 @@ class HashTableLinkedList {
     public void insert(int val) {
         size++;
         int pos = hash(val);
-        Hash nptr = new Hash(val);
-            nptr.next = table[pos];
-            table[pos] = nptr;
+        Hash np = new Hash(val);
+            np.next = table[pos];
+            table[pos] = np;
     }
     //Функция удаления элемента
-    public void remove(int val) {
-        int pos = hash(val);
-        Hash start = table[pos];
-        Hash end = start;
-        if (start.data == val) {
+    public void remove(int value) {
+        int position = hash(value);
+        Hash st = table[position];
+        Hash end = st;
+        if (st.data == value) {
             size--;
-            table[pos] = start.next;
+            table[position] = st.next;
             return;
         }
-        while (end.next != null && end.next.data != val)
+        while (end.next != null && end.next.data != value)
             end = end.next;
         if (end.next == null) {
             System.out.println("\nElement not found\n");
@@ -56,35 +56,37 @@ class HashTableLinkedList {
             return;
         }
         end.next = end.next.next;
-        table[pos] = start;
+        table[position] = st;
     }
     // Функция для очистки таблицы
-    public void makeEmpty() {
-        int l = table.length;
-        table = new Hash[l];
+    public void empty() {
+        int len = table.length;
+        table = new Hash[len];
         size = 0;
     }
-    private int hash(Integer x ) {
-        int hashVal = x.hashCode( );
-        hashVal %= table.length;
-        if (hashVal < 0)
-            hashVal += table.length;
-        return hashVal;
+    private int hash(Integer xcor ) {
+        int hashValue = xcor.hashCode( );
+        hashValue %= table.length;
+        if (hashValue < 0)
+            hashValue += table.length;
+        return hashValue;
     }
     //Генерируем простое число которое  >= n
     private static int nextPrime( int n ) {
         if (n % 2 == 0)
             n++;
-        for ( ; !isPrime( n ); n += 2);
+        for ( ; !isPrime( n ); n =n+2);
 
         return n;
     }
     //Проверяем является ли числом простым
     private static boolean isPrime( int n ) {
-        if (n == 2 || n == 3)
+        if (n == 2 || n == 3) {
             return true;
-        if (n == 1 || n % 2 == 0)
+        }
+        if (n == 1 || n % 2 == 0) {
             return false;
+        }
         for (int i = 3; i * i <= n; i += 2)
             if (n % i == 0)
                 return false;
@@ -95,10 +97,10 @@ class HashTableLinkedList {
         System.out.println();
         for (int i = 0; i < table.length; i++) {
             System.out.print ("Index " + i + ":  ");
-            Hash start = table[i];
-            while(start != null) {
-                System.out.print(start.data +" ");
-                start = start.next;
+            Hash st = table[i];
+            while(st != null) {
+                System.out.print(st.data +" ");
+                st = st.next;
             }
             System.out.println();
         }
@@ -115,23 +117,23 @@ class Test {
 
         char check;
         do {
-            System.out.println("1. remove");
-            System.out.println("2. insert ");
-            System.out.println("3. clear");
-            System.out.println("4. size");
-            int choice = scan.nextInt();
-            switch (choice){
+            System.out.println("1.remove");
+            System.out.println("2.insert ");
+            System.out.println("3.clear");
+            System.out.println("4.size");
+            int inputChoice = scan.nextInt();
+            switch (inputChoice){
                 case 1 :
-                    System.out.println("Enter integer element to delete");
+                    System.out.println("Enter int to remove an element");
                     hashTable.remove( scan.nextInt() );
                     break;
                 case 2 :
-                    System.out.println("Enter integer element to insert");
+                    System.out.println("Enter int element to insert/add");
                     hashTable.insert( scan.nextInt() );
                     break;
                 case 3 :
-                    hashTable.makeEmpty();
-                    System.out.println("Hash Table Cleared\n");
+                    hashTable.empty();
+                    System.out.println("Hash Table Was Cleared\n");
                     break;
                 case 4 :
                     System.out.println("Size of hash table is = "+ hashTable.getSize() );
